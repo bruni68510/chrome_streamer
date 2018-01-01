@@ -1,0 +1,1 @@
+CHROME=/opt/google/chrome/google-chrome  --no-sandbox --enable-logging=stderr  --ignore-certificate-errors --ignore-urlfetcher-cert-requests  https://192.168.0.2:8443/player.html
