@@ -1,4 +1,4 @@
-FROM ubuntu:14.04
+FROM ubuntu:16.04
 MAINTAINER Christophe Brunner
 
 
@@ -34,15 +34,13 @@ RUN apt-get update && \
  	apt-get install -y gstreamer1.0* && \
 	apt-get install -y unzip && \
 	apt-get install -y vim && \
-	apt-get install -y libboost1.58-all-dev && \
+	apt-get install -y libboost-all-dev && \
 	apt-get install -y ffmpeg
 
 RUN mkdir /var/lib/widevine && \ 
     cp /opt/google/chrome/libwidevinecdm.so /var/lib/widevine/libwidevinecdm.so && \
     mv /opt/google/chrome/libwidevinecdm.so /var/lib/widevine/libwidevinecdm_orig.so && \
     ln -s /var/lib/widevine/libwidevinecdm.so /opt/google/chrome/libwidevinecdm.so
-
-RUN echo 192.168.0.2 imac.int.bruninet.name >> /etc/hosts
 
 RUN set -xe \
     && useradd -u 1000 -g 100 -G sudo --shell /bin/bash --no-create-home --home-dir /tmp user \
